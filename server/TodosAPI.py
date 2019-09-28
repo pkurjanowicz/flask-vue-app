@@ -6,4 +6,9 @@ todos = ['Study Python', 'Study JavaScript', 'Clean Room']
 
 @todos_api.route('/todos', methods=['GET'])
 def serve_all_todos():
-    return jsonify({todos})
+    return jsonify({"items": todos})
+
+@todos_api.route('/todo', methods=['POST'])
+def add_todo():
+    todos.append(request.json['item'])
+    return jsonify(success=True)
