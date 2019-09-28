@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from app import create_app
+from app import create_app, setup_database
 from TodosAPI import todos_api
 
 
@@ -25,4 +25,5 @@ def add_vue_routes(app):
 if __name__ == "__main__":
     app = create_app()
     add_vue_routes(app)
+    setup_database(app)
     app.run(debug=True)
